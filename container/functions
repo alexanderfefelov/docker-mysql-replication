@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function confifure_server_id {
+function configure_server_id {
     cat > /etc/mysql/mysql.conf.d/server-id.cnf << EOF
 [mysqld]
 server-id=$SERVER_ID
@@ -43,12 +43,12 @@ function start_slave {
 function init_master {
     echo Initializing master
     cp /init-master.sh /docker-entrypoint-initdb.d/
-    confifure_server_id
+    configure_server_id
     configure_log_bin
 }
 
 function init_slave {
     echo Initializing slave
     cp /init-slave.sh /docker-entrypoint-initdb.d/
-    confifure_server_id
+    configure_server_id
 }
