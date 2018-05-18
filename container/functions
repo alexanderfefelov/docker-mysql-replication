@@ -14,6 +14,13 @@ log-bin=mysql-bin
 EOF
 }
 
+function configure_read_only {
+    cat > /etc/mysql/mysql.conf.d/read-only.cnf << EOF
+[mysqld]
+read_only=on
+EOF
+}
+
 function create_replication_user {
     echo Creating replication user
     mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute=" \
@@ -51,4 +58,5 @@ function init_slave {
     echo Initializing slave
     cp /init-slave.sh /docker-entrypoint-initdb.d/
     confifure_server_id
+    configure_read_only
 }
