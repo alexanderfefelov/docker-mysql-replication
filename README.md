@@ -1,15 +1,15 @@
 ## Environment variables
 
-* `SERVER_ID` (mandatory, no default value)
-* `MODE` (`master` or `slave`, mandatory, no default value)
-* `REPLICATOR_USERNAME` (optional, default `replicator`)
-* `REPLICATOR_PASSWORD` (optional, default `password`)
-* `MASTER_HOST` (optional, default `mysql-master.tld`)
-* `MASTER_PORT` (optional, default `3306`)
+* `SERVER_ID`, number, mandatory, no default value
+* `MODE`, string, `master` or `slave`, mandatory, no default value
+* `REPLICATOR_USERNAME`, string, optional, default `replicator`
+* `REPLICATOR_PASSWORD`, string, optional, default `password`
+* `MASTER_HOST`, string, optional, default `mysql-master.tld`
+* `MASTER_PORT`, number, optional, default `3306`
 
 ## Start master
 
-After executing something like
+Run something like
 
     docker run --name mysql-master-42 \
       --detach \
@@ -18,11 +18,9 @@ After executing something like
       --env MYSQL_ROOT_PASSWORD=password \
       --publish 10000:3306 \
       alexanderfefelov/mysql-replication \
-    && docker run --rm --link mysql-master-42:foobar martin/wait -t 300 \
-    && docker restart mysql-master-42 \
     && docker run --rm --link mysql-master-42:foobar martin/wait -t 300
 
-master with server ID 42 will be available at port 10000.
+and master with server ID 42 will be available at port 10000.
 
 ## Start slave(s)
 
