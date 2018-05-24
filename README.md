@@ -9,13 +9,13 @@ For both master and slave:
 
 For master only:
 
-* `LOG_BIN`, string, optional, `log-bin`
+* `LOG_BIN`, string, optional, default `log-bin`
 
 For slave only:
 
 * `MASTER_HOST`, string, optional, default `mysql-master.tld`
 * `MASTER_PORT`, number, optional, default `3306`
-* `RELAY_LOG`, string, optional, `relay-bin`
+* `RELAY_LOG`, string, optional, default `relay-bin`
 
 ## Start master
 
