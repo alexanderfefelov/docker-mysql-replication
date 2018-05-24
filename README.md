@@ -1,5 +1,8 @@
 ## Environment variables
 
+In addition to variables available from [official MySQL image](https://hub.docker.com/_/mysql/), you may/must specify
+some of the following variables for `docker run`.
+
 For both master and slave:
 
 | Name | Type | Mandatory | Default value | Description
