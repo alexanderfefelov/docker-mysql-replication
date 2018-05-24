@@ -2,20 +2,26 @@
 
 For both master and slave:
 
-* `SERVER_ID`, number, mandatory, no default value
-* `MODE`, string, `master` or `slave`, mandatory, no default value
-* `REPLICATOR_USERNAME`, string, optional, default `replicator`
-* `REPLICATOR_PASSWORD`, string, optional, default `password`
+| Name | Type | Mandatory | Default value | Description
+| ---- | ---- | --------- | ------------- | -----------
+| `SERVER_ID` | Number | Yes | No default value | [--server-id option](https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#option_mysqld_server-id)
+| `MODE` | String | Yes | No default value | `master` or `slave`
+| `REPLICATOR_USERNAME` | String | No | `replicator` | User name of the account to use for connecting to the master
+| `REPLICATOR_PASSWORD` | String | No | `password` | Password of the account to use for connecting to the master
 
 For master only:
 
-* `LOG_BIN`, string, optional, default `log-bin`
+| Name | Type | Mandatory | Default value | Description
+| ---- | ---- | --------- | ------------- | -----------
+| `LOG_BIN` | String | No | `log-bin` | [--log-bin option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#option_mysqld_log-bin)
 
 For slave only:
 
-* `MASTER_HOST`, string, optional, default `mysql-master.tld`
-* `MASTER_PORT`, number, optional, default `3306`
-* `RELAY_LOG`, string, optional, default `relay-bin`
+| Name | Type | Mandatory | Default value | Description
+| ---- | ---- | --------- | ------------- | -----------
+| `MASTER_HOST` | String | No | `mysql-master.tld` | Host name (or IP address) of the master host
+| `MASTER_PORT` | Number | No | `3306` | TCP/IP port  of the master host
+| `RELAY_LOG` | String | No | `relay-bin` | [--relay-log option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-slave.html#option_mysqld_relay-log)
 
 ## Start master
 
