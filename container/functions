@@ -47,14 +47,14 @@ function start_slave {
 
 function init_master {
     echo Initializing master
-    cp /init-master.sh /docker-entrypoint-initdb.d/
+    cp /initdb-master.sh /docker-entrypoint-initdb.d/
     configure_server_id
     configure_log_bin
 }
 
 function init_slave {
     echo Initializing slave
-    cp /init-slave.sh /docker-entrypoint-initdb.d/
+    cp /initdb-slave.sh /docker-entrypoint-initdb.d/
     configure_server_id
     configure_relay_log
 }
