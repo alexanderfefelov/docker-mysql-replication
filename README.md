@@ -64,3 +64,13 @@ docker run --name mysql-slave-24 \
 ```
 
 slave with server ID 24 will be available at port 12345.
+
+## Check replication status
+
+On master:
+
+    docker exec --tty --interactive mysql-master-42 mysql --user=root --password --execute="SHOW SLAVE HOSTS \G"
+
+On slave(s):
+
+    docker exec --tty --interactive mysql-slave-24 mysql --user=root --password --execute="SHOW SLAVE STATUS \G"
