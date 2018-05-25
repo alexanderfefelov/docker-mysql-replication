@@ -1,5 +1,3 @@
-#!/bin/bash
-
 function configure_server_id {
     cat > /etc/mysql/mysql.conf.d/server-id.cnf << EOF
 [mysqld]
