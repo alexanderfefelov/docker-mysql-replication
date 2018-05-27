@@ -1,3 +1,24 @@
+# docker-mysql-replication
+
+Need MySQL master-slave replication? One command to start master, one command to start each slave. What could be easier?
+
+```
+┌--------┐     ┌---------┐
+|        |     |         |
+| Master |--┬--| Slave 1 |
+|        |  |  |         |
+└--------┘  |  └---------┘
+            |
+           ...
+            |
+            |   ┌---------┐
+            |   |         |
+            └---| Slave N |
+                |         |
+                └---------┘
+
+```
+
 ## Environment variables
 
 In addition to variables available from [official MySQL image](https://hub.docker.com/_/mysql/), you may/must specify
