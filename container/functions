@@ -24,7 +24,7 @@ function create_replication_user {
     echo Creating replication user
     mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute=" \
         CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED BY '$REPLICATOR_PASSWORD'; \
-        GRANT REPLICATION SLAVE ON *.* TO '$REPLICATOR_USERNAME'@'%'; \
+        GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%'; \
     "
 }
 
