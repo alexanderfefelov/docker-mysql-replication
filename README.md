@@ -3,20 +3,17 @@
 Need MySQL master-slave replication? One command to start master, one command to start each slave. What could be easier?
 
 ```
-┌--------┐     ┌---------┐
-|        |     |         |
-| Master |--┬--| Slave 1 |
-|        |  |  |         |
-└--------┘  |  └---------┘
-            |
+┌────────┐     ┌─────────┐
+│        │     │         │
+│ Master ├────>│ Slave 1 │
+│        ├──┐  │         │
+└────────┘  │  └─────────┘
            ...
-            |
-            |   ┌---------┐
-            |   |         |
-            └---| Slave N |
-                |         |
-                └---------┘
-
+            │  ┌─────────┐
+            │  │         │
+            └─>│ Slave N │
+               │         │
+               └─────────┘
 ```
 
 ## Environment variables
@@ -38,6 +35,7 @@ For master only:
 | Name | Type | Mandatory | Default value | Description
 | ---- | ---- | --------- | ------------- | -----------
 | `LOG_BIN` | String | No | `log-bin` | [--log-bin option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#option_mysqld_log-bin)
+| `BINLOG_FORMAT` | String | No | `ROW` | [--binlog-format option](https://dev.mysql.com/doc/refman/5.7/en/server-options.html#option_mysqld_binlog-format)
 
 For slave only:
 

@@ -9,6 +9,7 @@ function configure_log_bin {
     cat > /etc/mysql/mysql.conf.d/log-bin.cnf << EOF
 [mysqld]
 log-bin=$LOG_BIN
+binlog-format=$BINLOG_FORMAT
 EOF
 }
 
