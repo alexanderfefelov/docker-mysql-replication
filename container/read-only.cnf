@@ -1,2 +1,2 @@
 [mysqld]
-super_read_only=on
+super-read-only=on
