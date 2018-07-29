@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. /functions
+. /functions.sh
 
 [ -z "$SERVER_ID" ] && echo "SERVER_ID must be defined" && exit 1
 

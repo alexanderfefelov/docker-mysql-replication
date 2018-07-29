@@ -1,5 +1,5 @@
 #!/bin/bash
 
-. /functions
+. /functions.sh
 
 create_replication_user
