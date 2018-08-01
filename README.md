@@ -50,7 +50,8 @@ For slave only:
 Run something like
 
 ```bash
-docker run --name mysql-master-42 \
+docker run \
+  --name mysql-master-42 \
   --detach \
   --env SERVER_ID=42 \
   --env MODE=master \
@@ -67,7 +68,8 @@ and master with server ID 42 will be available at port 10000.
 After executing something like
 
 ```bash
-docker run --name mysql-slave-24 \
+docker run \
+  --name mysql-slave-24 \
   --detach \
   --env SERVER_ID=24 \
   --env MODE=slave \
