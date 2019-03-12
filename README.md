@@ -58,7 +58,7 @@ docker run \
   --env MYSQL_ROOT_PASSWORD=password \
   --publish 10000:3306 \
   alexanderfefelov/mysql-replication \
-&& docker run --rm --link mysql-master-42:foobar martin/wait -t 300
+&& docker run --rm --link mysql-master-42:foobar martin/wait -p 3306 -t 300
 ```
 
 and master with server ID 42 will be available at port 10000.
@@ -78,10 +78,10 @@ docker run \
   --env MYSQL_ROOT_PASSWORD=password \
   --publish 12345:3306 \
   alexanderfefelov/mysql-replication \
-&& docker run --rm --link mysql-slave-24:foobar martin/wait -t 300 \
+&& docker run --rm --link mysql-slave-24:foobar martin/wait -p 3306 -t 300 \
 && docker exec mysql-slave-24 cp /read-only.cnf /etc/mysql/mysql.conf.d/ \
 && docker restart mysql-slave-24 \
-&& docker run --rm --link mysql-slave-24:foobar martin/wait -t 300
+&& docker run --rm --link mysql-slave-24:foobar martin/wait -p 3306 -t 300
 ```
 
 read-only slave with server ID 24 will be available at port 12345.
