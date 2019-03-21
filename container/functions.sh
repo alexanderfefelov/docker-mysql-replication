@@ -21,7 +21,7 @@ EOF
 }
 
 configure_relay_log() {
-    cat > /etc/mysql/mysql.conf.d/log-bin.cnf << EOF
+    cat > /etc/mysql/mysql.conf.d/relay-log.cnf << EOF
 [mysqld]
 relay-log=$RELAY_LOG
 EOF
