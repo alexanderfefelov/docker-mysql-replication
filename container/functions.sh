@@ -1,3 +1,10 @@
+configure_gtid_mode() {
+    cat > /etc/mysql/mysql.conf.d/gtid-mode.cnf << EOF
+[mysqld]
+gtid-mode=ON
+EOF
+}
+
 configure_server_id() {
     cat > /etc/mysql/mysql.conf.d/server-id.cnf << EOF
 [mysqld]
@@ -49,6 +56,7 @@ start_slave() {
 init_master() {
     echo Initializing master
     cp /initdb-master.sh /docker-entrypoint-initdb.d/
+    configure_gtid_mode
     configure_server_id
     configure_log_bin
 }
@@ -56,6 +64,7 @@ init_master() {
 init_slave() {
     echo Initializing slave
     cp /initdb-slave.sh /docker-entrypoint-initdb.d/
+    configure_gtid_mode
     configure_server_id
     configure_relay_log
 }
