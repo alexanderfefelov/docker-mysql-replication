@@ -9,7 +9,7 @@ ENV \
   BINLOG_FORMAT=ROW \
   RELAY_LOG=relay-bin
 
-COPY container/* /
+ADD container/ /
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["mysqld"]
