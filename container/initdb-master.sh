@@ -2,4 +2,4 @@
 
 . /functions.sh
 
-create_replication_user
+create_replication_account
