@@ -22,29 +22,29 @@ EOF
 
 create_replication_account() {
   echo Creating replication account...
-  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute=" \
-    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED BY '$REPLICATOR_PASSWORD'; \
-    GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%'; \
+  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
+    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED BY '$REPLICATOR_PASSWORD';
+    GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%';
   "
   echo ...replication account created
 }
 
 connect_slave_to_master() {
   echo Connecting slave to master...
-  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute=" \
-    CHANGE MASTER TO \
-      MASTER_HOST='$MASTER_HOST', \
-      MASTER_PORT=$MASTER_PORT, \
-      MASTER_USER='$REPLICATOR_USERNAME', \
-      MASTER_PASSWORD='$REPLICATOR_PASSWORD'; \
+  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
+    CHANGE MASTER TO
+      MASTER_HOST='$MASTER_HOST',
+      MASTER_PORT=$MASTER_PORT,
+      MASTER_USER='$REPLICATOR_USERNAME',
+      MASTER_PASSWORD='$REPLICATOR_PASSWORD';
   "
   echo ...slave connected to master
 }
 
 start_slave() {
   echo Staring slave...
-  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute=" \
-    START SLAVE; \
+  mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
+    START SLAVE;
   "
   echo ...slave started
 }
