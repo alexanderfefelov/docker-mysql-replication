@@ -1,12 +1,12 @@
 configure_server_id() {
-  cat > /etc/mysql/mysql.conf.d/server-id.cnf << EOF
+  cat > /etc/mysql/conf.d/server-id.cnf << EOF
 [mysqld]
 server-id=$SERVER_ID
 EOF
 }
 
 configure_log_bin() {
-  cat > /etc/mysql/mysql.conf.d/log-bin.cnf << EOF
+  cat > /etc/mysql/conf.d/log-bin.cnf << EOF
 [mysqld]
 log-bin=$LOG_BIN
 binlog-format=$BINLOG_FORMAT
@@ -14,7 +14,7 @@ EOF
 }
 
 configure_relay_log() {
-  cat > /etc/mysql/mysql.conf.d/relay-log.cnf << EOF
+  cat > /etc/mysql/conf.d/relay-log.cnf << EOF
 [mysqld]
 relay-log=$RELAY_LOG
 EOF
@@ -23,7 +23,7 @@ EOF
 create_replication_account() {
   echo Creating replication account...
   mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
-    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED BY '$REPLICATOR_PASSWORD';
+    CREATE USER '$REPLICATOR_USERNAME'@'%' IDENTIFIED WITH mysql_native_password BY '$REPLICATOR_PASSWORD';
     GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO '$REPLICATOR_USERNAME'@'%';
   "
   echo ...replication account created

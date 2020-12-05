@@ -79,7 +79,7 @@ docker run \
   --publish 12345:3306 \
   quay.io/alexanderfefelov/mysql-replication \
 && docker run --rm --link mysql-slave-24:foobar martin/wait -p 3306 -t 300 \
-&& docker exec mysql-slave-24 cp /read-only.cnf /etc/mysql/mysql.conf.d/ \
+&& docker exec mysql-slave-24 cp /read-only.cnf /etc/mysql/conf.d/ \
 && docker restart mysql-slave-24 \
 && docker run --rm --link mysql-slave-24:foobar martin/wait -p 3306 -t 300
 ```
