@@ -25,7 +25,7 @@ For both master and slave:
 
 | Name | Type | Mandatory | Default value | Description
 | ---- | ---- | --------- | ------------- | -----------
-| `SERVER_ID` | Number | Yes | No default value | [--server-id option](https://dev.mysql.com/doc/refman/5.7/en/replication-options.html#sysvar_server_id)
+| `SERVER_ID` | Number | Yes | No default value | [--server-id option](https://dev.mysql.com/doc/refman/8.0/en/replication-options.html#sysvar_server_id)
 | `MODE` | String | Yes | No default value | `master` or `slave`
 | `REPLICATOR_USERNAME` | String | No | `replicator` | User name of the account to use for connecting to the master
 | `REPLICATOR_PASSWORD` | String | No | `password` | Password of the account to use for connecting to the master
@@ -34,8 +34,8 @@ For master only:
 
 | Name | Type | Mandatory | Default value | Description
 | ---- | ---- | --------- | ------------- | -----------
-| `LOG_BIN` | String | No | `log-bin` | [--log-bin option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#option_mysqld_log-bin)
-| `BINLOG_FORMAT` | String | No | `ROW` | [--binlog-format option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format)
+| `LOG_BIN` | String | No | `log-bin` | [--log-bin option](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin)
+| `BINLOG_FORMAT` | String | No | `ROW` | [--binlog-format option](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format)
 
 For slave only:
 
@@ -43,7 +43,7 @@ For slave only:
 | ---- | ---- | --------- | ------------- | -----------
 | `MASTER_HOST` | String | No | `mysql-master.tld` | Host name (or IP address) of the master host
 | `MASTER_PORT` | Number | No | `3306` | TCP/IP port  of the master host
-| `RELAY_LOG` | String | No | `relay-bin` | [--relay-log option](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_relay_log)
+| `RELAY_LOG` | String | No | `relay-bin` | [--relay-log option](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_relay_log)
 
 ## Start master
 
