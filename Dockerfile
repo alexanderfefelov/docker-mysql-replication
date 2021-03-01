@@ -1,4 +1,4 @@
-FROM mysql:8.0.22
+FROM mysql:8.0.23
 
 ENV \
   REPLICATOR_USERNAME=replicator \
