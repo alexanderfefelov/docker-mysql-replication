@@ -42,7 +42,7 @@ connect_slave_to_master() {
 }
 
 start_slave() {
-  echo Staring slave...
+  echo Starting slave...
   mysql --user=root --password=$MYSQL_ROOT_PASSWORD --execute="
     START SLAVE;
   "
