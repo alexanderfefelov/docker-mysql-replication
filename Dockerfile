@@ -6,7 +6,7 @@ ENV \
   MASTER_HOST=mysql-master.tld \
   MASTER_PORT=3306 \
   LOG_BIN=log-bin \
-  BINLOG_FORMAT=ROW \
+  BINLOG_FORMAT=MIXED \
   RELAY_LOG=relay-bin
 
 ADD container/ /
