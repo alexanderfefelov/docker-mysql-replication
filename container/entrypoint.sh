@@ -6,10 +6,10 @@
 
 case "$MODE" in
   master)
-    init_master
+    prepare_master
     ;;
   slave)
-    init_slave
+    prepare_slave
     ;;
   *)
     echo MODE is invalid or undefined

@@ -57,18 +57,18 @@ start_slave() {
   echo ...slave started
 }
 
-init_master() {
-  echo Initializing master...
+prepare_master() {
+  echo Preparing master...
   cp /initdb-master.sh /docker-entrypoint-initdb.d/
   configure_server_id
   configure_log_bin
-  echo ...master initialized
+  echo ...master prepared
 }
 
-init_slave() {
-  echo Initializing slave...
+prepare_slave() {
+  echo Preparing slave...
   cp /initdb-slave.sh /docker-entrypoint-initdb.d/
   configure_server_id
   configure_relay_log
-  echo ...slave initialized
+  echo ...slave prepared
 }
