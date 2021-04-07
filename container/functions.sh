@@ -1,6 +1,8 @@
 configure_server_id() {
   cat > /etc/mysql/conf.d/server-id.cnf << EOF
 [mysqld]
+
+# https://dev.mysql.com/doc/refman/8.0/en/replication-options.html#sysvar_server_id
 server-id=$SERVER_ID
 EOF
 }
@@ -8,7 +10,11 @@ EOF
 configure_log_bin() {
   cat > /etc/mysql/conf.d/log-bin.cnf << EOF
 [mysqld]
+
+# https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#option_mysqld_log-bin
 log-bin=$LOG_BIN
+
+# https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_format
 binlog-format=$BINLOG_FORMAT
 EOF
 }
@@ -16,6 +22,8 @@ EOF
 configure_relay_log() {
   cat > /etc/mysql/conf.d/relay-log.cnf << EOF
 [mysqld]
+
+# https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_relay_log
 relay-log=$RELAY_LOG
 EOF
 }

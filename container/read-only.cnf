@@ -1,2 +1,4 @@
 [mysqld]
+
+# https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_super_read_only
 super-read-only=ON
