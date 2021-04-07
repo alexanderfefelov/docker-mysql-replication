@@ -90,10 +90,27 @@ read-only slave with server ID 24 will be available at port 12345.
 
 On master:
 
-    docker exec --tty --interactive mysql-master-42 \
-      mysql --user=root --password --execute="SHOW SLAVE HOSTS \G"
+```bash
+docker exec --tty --interactive mysql-master-42 \
+  mysql --user=root --password --execute="SHOW SLAVE HOSTS \G"
+```
 
 On slave(s):
 
-    docker exec --tty --interactive mysql-slave-24 \
-      mysql --user=root --password --execute="SHOW SLAVE STATUS \G"
+```bash
+docker exec --tty --interactive mysql-slave-24 \
+  mysql --user=root --password --execute="SHOW SLAVE STATUS \G"
+```
+
+## Build non-mainstream version
+
+You may build non-mainstream version if you want:
+
+```bash
+VERSION=8.0.13 ./build.sh
+```
+
+## What's next?
+
+- Check out [the official documentation](https://dev.mysql.com/doc/refman/8.0/en/replication.html).
+- See similar [solution for MariaDB](https://github.com/alexanderfefelov/docker-mariadb-replication).
